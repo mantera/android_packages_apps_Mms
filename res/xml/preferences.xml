@@ -47,14 +47,8 @@
                       android:summary="@string/pref_summary_sms_delivery_reports"
                       android:title="@string/pref_title_sms_delivery_reports" />
     <CheckBoxPreference android:defaultValue="false"
-                      android:key="pref_key_sms_split_160"
-                      android:summary="@string/pref_summary_sms_split_160"
-                      android:title="@string/pref_title_sms_split_160" />
-    <CheckBoxPreference android:layout="?android:attr/preferenceLayoutChild"
-                      android:defaultValue="false"
                       android:key="pref_key_sms_split_counter"
                       android:summary="@string/pref_summary_sms_split_counter"
-                      android:dependency="pref_key_sms_split_160"
                       android:title="@string/pref_title_sms_split_counter" />
     <Preference android:key="pref_key_manage_sim_messages"
                       android:summary="@string/pref_summary_manage_sim_messages"
@@ -101,6 +95,20 @@
                         android:entries="@array/prefEntries_vibrateWhen"
                         android:entryValues="@array/prefValues_vibrateWhen"
                         android:dialogTitle="@string/prefDialogTitle_vibrateWhen" />
+    <com.android.mms.preferences.CustomVibrateListPreference
+                        android:key="pref_key_mms_notification_vibrate_pattern"
+                        android:dependency="pref_key_vibrateWhen"
+                        android:defaultValue=""
+                        android:title="@string/pref_title_mms_notification_vibrate_pattern"
+                        android:summary="@string/pref_summary_mms_notification_vibrate_pattern"
+                        android:entries="@array/pref_mms_notification_vibrate_pattern_entries"
+                        android:entryValues="@array/pref_mms_notification_vibrate_pattern_values"
+                        android:dialogTitle="@string/pref_title_mms_notification_vibrate_pattern" />
+    <CheckBoxPreference android:key="pref_key_mms_notification_vibrate_call"
+                        android:dependency="pref_key_enable_notifications"
+                        android:defaultValue="true"
+                        android:title="@string/pref_title_mms_notification_vibrate_call"
+                        android:summary="@string/pref_summary_mms_notification_vibrate_call" />
   </PreferenceCategory>
   <PreferenceCategory android:title="@string/prefs_templates_settings" >
         <Preference
