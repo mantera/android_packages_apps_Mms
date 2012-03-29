@@ -1864,7 +1864,6 @@ public class ComposeMessageActivity extends Activity
 
         // Let the working message know what conversation it belongs to
         mWorkingMessage.setConversation(mConversation);
-        invalidateOptionsMenu();
 
         // Show the recipients editor if we don't have a valid thread. Hide it otherwise.
         if (mConversation.getThreadId() <= 0) {
@@ -1880,6 +1879,10 @@ public class ComposeMessageActivity extends Activity
         } else {
             hideRecipientEditor();
         }
+        invalidateOptionsMenu();    // do after show/hide of recipients editor because the options
+                                    // menu depends on the recipients, which depending upon the
+                                    // visibility of the recipients editor, returns a different
+                                    // value (see getRecipients()).
 
         updateSendButtonState();
 
